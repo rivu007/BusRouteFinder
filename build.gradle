@@ -1,0 +1,43 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'BusRouteFinder'
+	version = '1.0'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-rest')
+	compile('com.google.guava:guava:20.0')
+	compile('io.fastjson:boon:0.34')
+	compile('io.reactivex:rxjava:1.2.3')
+	compile('io.reactivex:rxjava-string:1.1.0')
+	compile('org.springframework.boot:spring-boot-devtools:1.3.8.RELEASE')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+/*task run (type: JavaExec, dependsOn: classes){
+    if(project.hasProperty('myargs')){
+        args(myargs.split(','))
+    }
+}*/
