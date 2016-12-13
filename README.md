@@ -1,4 +1,4 @@
-# Bus Route Challenge
+# Bus Route Finder
 
 ### Problem
 
@@ -9,37 +9,11 @@ in form of a **bus route data file**. As this provider has a lot of long bus
 routes, we need to come up with a proper service to quickly answer if two given
 stations are connected by a bus route.
 
+## Getting it running
 
-### Task
-
-The bus route data file provided by the bus provider contains a list of bus
-routes. These routes consist of an unique identifier and a list of stations
-(also just unique identifiers). A bus route **connects** its list of stations.
-
-Your task is to implement a micro service which is able to answer whether there
-is a bus route providing a direct connection between two given stations. *Note:
-The station identifiers given in a query may not be part of any bus route!*
-
-
-### Bus Route Data
-
-The first line of the data gives you the number **N** of bus routes, followed by
-**N** bus routes. For each bus route there will be **one** line containing a
-space separated list of integers. This list contains at least three integers. The
-**first** integer represents the bus **route id**. The bus route id is unique
-among all other bus route ids in the input. The remaining integers in the list
-represent a list of **station ids**. A station id may occur in multiple bus
-routes, but can never occur twice within the same bus route.
-
-You may assume 100,000 as upper limit for the number of bus routes, 1,000,000 as
-upper limit for the number of stations, and 1,000 as upper limit for the number
-of station of one bus route. Therefore, your internal data structure should
-still fit into memory on a suitable machine.
-
-*Note: The bus route data file will be a local file and your service will get
-the path to file as the first command line argument. Your service will get
-restarted if the file or its location changes.*
-
+Clone this project. Use git clone https://github.com/rivu007/BusRouteFinder.git
+Run `./gradlew clean build` at the root of the repository, where the `build.gradle` file is located.
+That's it!
 
 ### REST API
 
@@ -112,67 +86,6 @@ Please implement your solution in Java, preferably Java 8. We expect you to
 demonstrate best practices for general software development. Feel free to use
 helpful open source libraries if applicable. We will evaluate your source code
 as well as the functionality and compliance of the application.
-
-
-### Packaging
-
-Done with the fun part, the implementation? We have a few more requirements
-for you that might sound boring but help us a lot in testing your code. Before you
-send us your solution, package it.
-
-Your micro service must contain two simple bash scripts in the top level
-repository directory.
-
-- `build.sh`: builds your project. This could be as simple as:
-  ```
-  #!/bin/bash
-  mvn clean package
-  ```
-
-  We will execute this on an **Ubuntu 16.04** docker container with installed:
-
-  ```
-  openjdk-8-jdk
-  maven
-  gradle
-  ```
-
-- `service.sh`: starts / stops your micro service. Accepts `start|stop|block`
-  and the path to a **bus routes data file** as arguments (`bash service.sh
-  start FILE`). After your micro service got started it shall answer queries
-  until it is terminated. Please use the template provided in the `template`
-  sub-directory. Feel encouraged to improve the script. The least you have to do
-  is to specify `RUN` and `NAME`. Something like this:
-
-  ```
-  …
-
-  RUN="java -jar my-fancy-fat-jar.jar"
-  NAME=my-awesome-bus-route-service
-  
-  …
-  ```
-  
-  *Note: as stated above `service.sh` must be located in the top level directory
-  of your repository.
-
-
-### Shipping
-
-The preferred option is a link to a **git** repository. GitHub, GitLab,
-Bitbucket or your self hosted git. As long as `git clone LINK` works we're
-happy. If you are not able to share a git repository, e.g. for privacy reasons,
-please share a download link for a **zip** file. This zip file should contain a
-single folder that contains your project. The content of the zip file should
-look like this:
-```
-project_folder
-├── src
-├── build.gradle/pom.xml
-├── build.sh
-└── service.sh
-```
-
 
 ### Quick Smoke Test
 
