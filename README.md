@@ -11,9 +11,9 @@ stations are connected by a bus route.
 
 ## Getting it running
 
-Clone this project. Use git clone https://github.com/rivu007/BusRouteFinder.git
-Run `./gradlew clean build` at the root of the repository, where the `build.gradle` file is located.
-That's it!
+1. Clone this project. Use git clone https://github.com/rivu007/BusRouteFinder.git
+2. Run `./gradlew clean build` at the root of the repository, where the `build.gradle` file is located.
+3. That's it!
 
 ### REST API
 
